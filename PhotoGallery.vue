@@ -44,10 +44,13 @@
                 images: []
             }
         },
-        computed: {
-            imagesDir() {
-                return "/images/"
+        props: {
+            imagesDir: {
+                type: String,
+                default: "/images/",
             },
+        },
+        computed: {
             mainImage() {
                 if (this.images.length === 0) {
                     return false

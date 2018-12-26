@@ -688,12 +688,12 @@ function normalizeComponent (
   }
 }
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ca0e2238-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./PhotoGallery.vue?vue&type=template&id=abd713f6&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ca0e2238-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./PhotoGallery.vue?vue&type=template&id=33c618de&shadow
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"photo-gallery"},[_c('div',{staticClass:"photo-main"},[(_vm.mainImage)?_c('img',{staticClass:"photo-main-image",attrs:{"src":_vm.mediumDir + _vm.mainImage.name},on:{"click":function($event){_vm.showLightbox(_vm.mainImage.name)}}}):_vm._e()]),(_vm.randomThumbs)?_c('div',{staticClass:"photo-thumbnails"},_vm._l((_vm.randomThumbs),function(image){return _c('img',{key:image.name,staticClass:"photo-thumbnail",attrs:{"src":_vm.thumbnailDir + image.name},on:{"click":function($event){_vm.showLightbox(image.name)}}})}),0):_vm._e(),_c('lightbox',{ref:"lightbox",attrs:{"id":"mylightbox","images":_vm.images,"directory":_vm.imagesDir,"timeoutDuration":5000}})],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./PhotoGallery.vue?vue&type=template&id=abd713f6&shadow
+// CONCATENATED MODULE: ./PhotoGallery.vue?vue&type=template&id=33c618de&shadow
 
 // EXTERNAL MODULE: ./node_modules/node-fetch/browser.js
 var browser = __webpack_require__("a18f");
@@ -702,7 +702,7 @@ var browser_default = /*#__PURE__*/__webpack_require__.n(browser);
 // EXTERNAL MODULE: ./node_modules/vue-my-photos/dist/lightbox.esm.js
 var lightbox_esm = __webpack_require__("9917");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./PhotoGallery.vue?vue&type=script&lang=js&shadow
+// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib??ref--12-1!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./PhotoGallery.vue?vue&type=script&lang=js&shadow
 //
 //
 //
@@ -735,69 +735,78 @@ var lightbox_esm = __webpack_require__("9917");
 //
 //
 //
-
-
 
 
 /* harmony default export */ var lib_vue_loader_options_PhotoGalleryvue_type_script_lang_js_shadow = ({
-    name: "PhotoGallery",
-    components: {
-        'lightbox': lightbox_esm["a" /* default */],
-    },
-    data() {
-        return {
-            images: []
-        }
-    },
-    // props: {
-    //     imagesPath
-    // },
-    computed: {
-        imagesDir() {
-            // return "https://kakaravaara.fi/media/photogallery/
-            return "/images/"
-        },
-        mainImage() {
-            if (this.images.length === 0) {
-                return false
-            }
-            return this.randomImage()
-        },
-        mediumDir() {
-            return this.imagesDir + '_medium/'
-        },
-        randomThumbs() {
-            if (this.images.length === 0) {
-                return false
-            }
-            let thumbs = []
-            for (let i=0; (i<5 && i < this.images.length); i++) {
-                thumbs.push(this.randomImage())
-            }
-            return thumbs
-        },
-        thumbnailDir() {
-            return this.imagesDir + '_thumbs/'
-        },
-    },
-    methods: {
-        getRandomInt(max) {
-            return Math.floor(Math.random() * Math.floor(max))
-        },
-        randomImage() {
-            return this.images[this.getRandomInt(this.images.length-1)]
-        },
-        showLightbox(imageName) {
-            this.$refs.lightbox.show(imageName)
-        },
-    },
-    mounted() {
-        browser_default()(this.imagesDir + 'manifest.json')
-            .then(res => res.json())
-            .then(json => this.images = json)
-    },
-});
+  name: "PhotoGallery",
+  components: {
+    'lightbox': lightbox_esm["a" /* default */]
+  },
 
+  data() {
+    return {
+      images: []
+    };
+  },
+
+  props: {
+    imagesDir: {
+      type: String,
+      default: "/images/"
+    }
+  },
+  computed: {
+    mainImage() {
+      if (this.images.length === 0) {
+        return false;
+      }
+
+      return this.randomImage();
+    },
+
+    mediumDir() {
+      return this.imagesDir + '_medium/';
+    },
+
+    randomThumbs() {
+      if (this.images.length === 0) {
+        return false;
+      }
+
+      var thumbs = [];
+
+      for (var i = 0; i < 5 && i < this.images.length; i++) {
+        thumbs.push(this.randomImage());
+      }
+
+      return thumbs;
+    },
+
+    thumbnailDir() {
+      return this.imagesDir + '_thumbs/';
+    }
+
+  },
+  methods: {
+    getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    },
+
+    randomImage() {
+      return this.images[this.getRandomInt(this.images.length - 1)];
+    },
+
+    showLightbox(imageName) {
+      this.$refs.lightbox.show(imageName);
+    }
+
+  },
+
+  mounted() {
+    browser_default()(this.imagesDir + 'manifest.json').then(res => res.json()).then(json => this.images = json);
+  }
+
+});
 // CONCATENATED MODULE: ./PhotoGallery.vue?vue&type=script&lang=js&shadow
  /* harmony default export */ var PhotoGalleryvue_type_script_lang_js_shadow = (lib_vue_loader_options_PhotoGalleryvue_type_script_lang_js_shadow); 
 // CONCATENATED MODULE: ./PhotoGallery.vue?shadow

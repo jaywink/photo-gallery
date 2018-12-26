@@ -4,20 +4,7 @@ Drop in page photo gallery web component made with Vue.
 
 ## Usage
 
-### Installing component
-
-* Include the component by loading the following on your site:
-  * `dist/css/app.css`
-  * `dist/js/chunk-vendors.js`
-  * `dist/js/app.js`
-
-* Add the component to your site as follows:
-
-    `<photo-gallery></photo-gallery>`
-    
-### Managing images
-
-Collect a bunch of JPG/PNG images in a folder.
+Collect a bunch of JPG/PNG images in a folder somewhere.
 
 Run `./make_manifest.py <path to images>` to generate the manifest.
 
@@ -25,7 +12,20 @@ Run `./make_thumbs.sh <path to images>` to generate thumbnails.
 
 The processed images will be found in `images/`.
 
-Upload images (including `_thumb` and `_medium` folders inside) to a folder on the web server.
+Upload the contents of `images` folder (including `_thumb` and `_medium` folders, and the `manifest.json` file inside) to a folder on your server served by the web server.
+
+Upload the `dist/photo-gallery.js` script to the server in to a place where it can be reached from.
+
+Include the component by loading the following on your site. Correct the path to `photo-gallery.js` as needed.
+
+    <script src="https:///unpkg.com/vue"></script>
+    <script src="/path/to/photo-gallery.js"></script>
+
+Add the component to your site HTML as follows:
+
+    <photo-gallery images-path="/path/to/images/"></photo-gallery>
+    
+By default the component will look for images in `/images` so if you upload them there, no `images-path` needs to be set. Note, `images-path` can also refer to an URL, though your browser will most likely block CORS requests cross-domain.
 
 ## Development
 
@@ -37,7 +37,20 @@ Do awesome changes.
 
 Compile:
 
-    node_modules/.bin/vue build -t wc -n photo-gallery
+    node_modules/.bin/vue build -t wc PhotoGallery.vue
+
+### Preview
+
+In another shell, have `python3 -m http.server` running in the root of the project.
+
+Collect some images in a folder, then run:
+
+    ./make_manifest.py <path to images>
+    ./make_thumbs.sh <path to images>
+
+Compile the component.
+
+Open a web browser at `http://localhost:8000/dist/demo.html`
 
 ## Licence
 
