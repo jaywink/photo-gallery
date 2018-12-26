@@ -23,15 +23,15 @@ Run `./make_manifest.py <path to images>` to generate the manifest.
 
 Run `./make_thumbs.sh <path to images>` to generate thumbnails.
 
-Upload images to a folder on the web server.
+The processed images will be found in `images/`.
+
+Upload images (including `_thumb` and `_medium` folders inside) to a folder on the web server.
 
 ## Development
 
 Install Node 10.
 
-Install Vue CLI:
-
-    npm install -g @vue/cli
+Run NPM install.
 
 Do awesome changes.
 
