@@ -46,7 +46,8 @@
         },
         computed: {
             imagesDir() {
-                return "https://kakaravaara.fi/media/photogallery/"
+                // return "https://kakaravaara.fi/media/photogallery/
+                return "http://localhost:8000/images/"
             },
             mainImage() {
                 if (this.images.length === 0) {

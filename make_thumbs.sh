@@ -1,6 +1,6 @@
 #! /bin/bash
 
-cd images
+cd $1
 
 for i in *.jpg; do
     if [ "$i" -nt "_thumbs/$i" ]; then
@@ -14,4 +14,4 @@ for i in *.JPG; do
     fi
 done;
 
-cd ..
+cd -
