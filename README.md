@@ -8,6 +8,8 @@ By default renders one random image and 5 thumbnails. The large image and random
 
 ## Usage
 
+Requires [ImageMagick](https://www.imagemagick.org/) and Python 3 to be found on the system to process the images.
+
 Collect a bunch of JPG/PNG images in a folder somewhere.
 
 Run `./make_thumbs.sh <path to images>` to generate thumbnails.
