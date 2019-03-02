@@ -45,8 +45,8 @@ In another shell, have `python3 -m http.server` running in the root of the proje
 
 Collect some images in a folder, then run:
 
-    ./make_manifest.py <path to images>
-    ./make_thumbs.sh <path to images>
+    ./make_thumbs.sh <path to source images>
+    ./make_manifest.py
 
 Compile the component.
 
