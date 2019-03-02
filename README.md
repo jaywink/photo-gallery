@@ -2,6 +2,10 @@
 
 Drop in page photo gallery web component made with Vue.
 
+![](screenshot.png)
+
+By default renders one random image and 5 thumbnails. The large image and random images are clickable, opening a [lightbox image viewer](https://github.com/am283721/vue-my-photos), allowing full-screen browsing of the images (including keyboard support).
+
 ## Usage
 
 Collect a bunch of JPG/PNG images in a folder somewhere.
