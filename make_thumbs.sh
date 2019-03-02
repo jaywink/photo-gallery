@@ -25,7 +25,7 @@ for i in {*.jpg,*.png,*.JPG,*.PNG}; do
         convert "$i" -resize 'x1024' "_medium/$i";
     fi
     if [ "$i" -nt "_thumbs/$i" ]; then
-        convert "$i" -thumbnail 'x100' "_thumbs/$i";
+        convert "$i" -thumbnail 'x60' "_thumbs/$i";
     fi
 done;
 
