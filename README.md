@@ -41,6 +41,12 @@ By default a medium size large image will be shown. Pass "true" to hide the main
 
 Example: `<photo-gallery hide-main-image="true"></photo-gallery>`
 
+**thumbs-count**
+
+Controls how many thumbnails to render. Defaults to 5.
+
+Example: `<photo-gallery thumbs-count="20"></photo-gallery>`
+
 ## Development
 
 Install Node 10.

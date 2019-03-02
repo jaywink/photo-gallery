@@ -10,11 +10,11 @@
         </div>
         <div
             class="photo-thumbnails"
-            v-if="randomThumbs"
+            v-if="thumbs"
         >
             <img
                 class="photo-thumbnail"
-                v-for="image in randomThumbs"
+                v-for="image in thumbs"
                 :key="image.name"
                 @click="showLightbox(image.name)"
                 :src="thumbnailDir + image.name"
@@ -41,7 +41,7 @@
         },
         data() {
             return {
-                images: []
+                images: [],
             }
         },
         props: {
@@ -52,6 +52,10 @@
             imagesDir: {
                 type: String,
                 default: "/images/",
+            },
+            thumbsCount: {
+                type: Number,
+                default: 5,
             },
         },
         computed: {
@@ -64,15 +68,11 @@
             mediumDir() {
                 return this.imagesDir + '_medium/'
             },
-            randomThumbs() {
+            thumbs() {
                 if (this.images.length === 0) {
                     return false
                 }
-                let thumbs = []
-                for (let i=0; (i<5 && i < this.images.length); i++) {
-                    thumbs.push(this.randomImage())
-                }
-                return thumbs
+                return this.images.slice(0, this.thumbsCount)
             },
             thumbnailDir() {
                 return this.imagesDir + '_thumbs/'
@@ -83,7 +83,7 @@
                 return Math.floor(Math.random() * Math.floor(max))
             },
             randomImage() {
-                return this.images[this.getRandomInt(this.images.length-1)]
+                return this.thumbs[this.getRandomInt(this.thumbs.length-1)]
             },
             showLightbox(imageName) {
                 this.$refs.lightbox.show(imageName)
@@ -111,10 +111,11 @@
         align-self: center;
     }
     .photo-thumbnails {
-        margin-top: 1rem;
+        margin-top: 0.5rem;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+        flex-wrap: wrap;
     }
     .photo-thumbnail {
         cursor: pointer;
