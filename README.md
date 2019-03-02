@@ -29,17 +29,17 @@ Include the component by loading the following on your site. Correct the path to
 
 Add the component to your site HTML as follows:
 
-    <photo-gallery images-path="/path/to/images/"></photo-gallery>
+    <photo-gallery images-dir="/path/to/images/"></photo-gallery>
     
-By default the component will look for images in `/images` so if you upload them there, no `images-path` needs to be set. Note, `images-path` can also refer to an URL, though your browser will most likely block CORS requests cross-domain.
+By default the component will look for images in `/images` so if you upload them there, no `images-dir` needs to be set. Note, `images-dir` can also refer to an URL, though your browser will most likely block CORS requests cross-domain.
 
 ### Configuration
 
-**images-path**
+**images-dir**
 
-Path or URL to the images folder which also includes the manifest and processsed medium and thumb sized files (see above). Defaults to `/images`.
+Path or URL to the images folder which also includes the manifest and processsed medium and thumb sized files (see above). Defaults to `/images/`.
 
-Example: `<photo-gallery images-path="/path/to/images/"></photo-gallery>`
+Example: `<photo-gallery images-dir="/path/to/images/"></photo-gallery>`
 
 **hide-main-image**
 
