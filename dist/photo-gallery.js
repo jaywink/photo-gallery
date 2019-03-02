@@ -688,12 +688,12 @@ function normalizeComponent (
   }
 }
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ca0e2238-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./PhotoGallery.vue?vue&type=template&id=33c618de&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ca0e2238-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./PhotoGallery.vue?vue&type=template&id=e0c66d30&shadow
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"photo-gallery"},[_c('div',{staticClass:"photo-main"},[(_vm.mainImage)?_c('img',{staticClass:"photo-main-image",attrs:{"src":_vm.mediumDir + _vm.mainImage.name},on:{"click":function($event){_vm.showLightbox(_vm.mainImage.name)}}}):_vm._e()]),(_vm.randomThumbs)?_c('div',{staticClass:"photo-thumbnails"},_vm._l((_vm.randomThumbs),function(image){return _c('img',{key:image.name,staticClass:"photo-thumbnail",attrs:{"src":_vm.thumbnailDir + image.name},on:{"click":function($event){_vm.showLightbox(image.name)}}})}),0):_vm._e(),_c('lightbox',{ref:"lightbox",attrs:{"id":"mylightbox","images":_vm.images,"directory":_vm.imagesDir,"timeoutDuration":5000}})],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./PhotoGallery.vue?vue&type=template&id=33c618de&shadow
+// CONCATENATED MODULE: ./PhotoGallery.vue?vue&type=template&id=e0c66d30&shadow
 
 // EXTERNAL MODULE: ./node_modules/node-fetch/browser.js
 var browser = __webpack_require__("a18f");
@@ -753,11 +753,15 @@ var lightbox_esm = __webpack_require__("9917");
     imagesDir: {
       type: String,
       default: "/images/"
+    },
+    hideMainImage: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
     mainImage() {
-      if (this.images.length === 0) {
+      if (this.hideMainImage || this.images.length === 0) {
         return false;
       }
 

@@ -6,9 +6,9 @@ Drop in page photo gallery web component made with Vue.
 
 Collect a bunch of JPG/PNG images in a folder somewhere.
 
-Run `./make_manifest.py <path to images>` to generate the manifest.
-
 Run `./make_thumbs.sh <path to images>` to generate thumbnails.
+
+Run `./make_manifest.py` to generate the manifest.
 
 The processed images will be found in `images/`.
 
@@ -26,6 +26,20 @@ Add the component to your site HTML as follows:
     <photo-gallery images-path="/path/to/images/"></photo-gallery>
     
 By default the component will look for images in `/images` so if you upload them there, no `images-path` needs to be set. Note, `images-path` can also refer to an URL, though your browser will most likely block CORS requests cross-domain.
+
+### Configuration
+
+**images-path**
+
+Path or URL to the images folder which also includes the manifest and processsed medium and thumb sized files (see above). Defaults to `/images`.
+
+Example: `<photo-gallery images-path="/path/to/images/"></photo-gallery>`
+
+**hide-main-image**
+
+By default a medium size large image will be shown. Pass "true" to hide the main image and just render thumbs.
+
+Example: `<photo-gallery hide-main-image="true"></photo-gallery>`
 
 ## Development
 

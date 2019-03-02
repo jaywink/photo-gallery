@@ -45,6 +45,10 @@
             }
         },
         props: {
+            hideMainImage: {
+                type: Boolean,
+                default: false,
+            },
             imagesDir: {
                 type: String,
                 default: "/images/",
@@ -52,7 +56,7 @@
         },
         computed: {
             mainImage() {
-                if (this.images.length === 0) {
+                if (this.hideMainImage || this.images.length === 0) {
                     return false
                 }
                 return this.randomImage()
